@@ -1,0 +1,194 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Adversarial Audio Demo </title>
+    <link rel="stylesheet" type="text/css" href="index_files/stylesheet.css">
+    <link rel="shortcut icon" href="icon.png">
+</head>
+
+<body align="center">
+
+    <article>
+        <header>
+            <h1>Voting for the right anwser: Adversarial defense for speaker verification</h1>
+        </header>
+    </article>
+    <div><b>Authors: Haibin Wu*, Yang Zhang*, Zhiyong Wu, Dong Wang, Hung-yi Lee</b></div>
+    <br>
+    <div align="left"><b>Abstract:</b> Automatic speaker verification (ASV) is a mature technology
+        for biometric identification, and has been ubiquitous implemented in security-critic applications, such as
+        banking and access control. However, previous works have shown that ASV
+        is under the radar of adversarial attacks, which are over 99%
+        similar to their genuine counterparts from human’s perception,
+        yet will manipulate the ASV render wrong prediction. Due to
+        the very late emergence of adversarial attacks for ASV, effective
+        countermeasures against them are rare and limited. Given that
+        the security of ASV is of high priority, in this work, we propose
+        to harness the idea of ”voting for the right answer” to conduct
+        data augmentation during inference time and equip the ASV
+        with the capacity of countering adversarial attacks. The experimental results show that our proposed method
+        accomplishes effective defense performance against both the limited-knowledge
+        attacks by pulling the adversarial samples out of the blind spots,
+        and the perfect-knowledge attackers by introducing randomness
+        and causing the attack gradient unstable and obfuscated
+    </div>
+
+    <div align="center">
+        <h3>ASV system Setup(EER=2.52%)</h3>
+        Our system achieved 2.52% equal error rate in Voxceleb1 test, and than we fix the models’ decision thresholds τ
+        for rest of experiments.
+        <table>
+            <tbody>
+                <tr>
+                    <h3>1. Clean audio from Voxceleb1 test(FAR=2.24%, FRR=2.56%)</h3>
+                </tr>
+
+                <tr>
+                    <td><strong>Enrollment</strong></td>
+                    <td><strong>Test(target)</strong></td>
+                    <td><strong>Test(nontarget)</strong></td>
+                </tr>
+
+                <tr>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_36_0.wav"></audio></td>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_vocoder_36_0.wav"></audio></td>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_vocoder_36_0.wav"></audio></td>
+                </tr>
+                <tr>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_36_0.wav"></audio></td>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_vocoder_36_0.wav"></audio></td>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_vocoder_36_0.wav"></audio></td>
+                </tr>
+                <tr>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_36_0.wav"></audio></td>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_vocoder_36_0.wav"></audio></td>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_vocoder_36_0.wav"></audio></td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <tbody>
+                <tr>
+                    <h3>2. BIM Adversarial attack Sample(σ=5, FAR=71.83%, FRR=74.92%)</h3>
+                </tr>
+                <tr>
+                    <td><strong>Enrollment</strong></td>
+                    <td><strong>Test(target)</strong></td>
+                    <td><strong>Test(nontarget)</strong></td>
+                </tr>
+                <tr>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_36_0.wav"></audio></td>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_vocoder_36_0.wav"></audio></td>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_vocoder_36_0.wav"></audio></td>
+                </tr>
+                <tr>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_36_0.wav"></audio></td>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_vocoder_36_0.wav"></audio></td>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_vocoder_36_0.wav"></audio></td>
+                </tr>
+                <tr>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_36_0.wav"></audio></td>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_vocoder_36_0.wav"></audio></td>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_vocoder_36_0.wav"></audio></td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <tbody>
+                <tr>
+                    <h3>3. Attack Sample with Random Gaussian Noise for Voting Defense(σ=60, K=50, FAR=4.63%,
+                        FRR=10.74%)
+                    </h3>
+                </tr>
+                <tr>
+                    <td><strong>Enrollment</strong></td>
+                    <td><strong>Test(target)</strong></td>
+                    <td><strong>Test(nontarget)</strong></td>
+                </tr>
+                <tr>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_36_0.wav"></audio></td>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_vocoder_36_0.wav"></audio></td>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_vocoder_36_0.wav"></audio></td>
+                </tr>
+                <tr>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_36_0.wav"></audio></td>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_vocoder_36_0.wav"></audio></td>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_vocoder_36_0.wav"></audio></td>
+                </tr>
+                <tr>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_36_0.wav"></audio></td>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_vocoder_36_0.wav"></audio></td>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_vocoder_36_0.wav"></audio></td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <tbody>
+                <tr>
+                    <h3>4. Attack Sample with Gaussian Filter for Defense(FAR=56.86%, FRR=62.22%)</h3>
+                </tr>
+                <tr>
+                    <td><strong>Enrollment</strong></td>
+                    <td><strong>Test(target)</strong></td>
+                    <td><strong>Test(nontarget)</strong></td>
+                </tr>
+                <tr>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_36_0.wav"></audio></td>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_vocoder_36_0.wav"></audio></td>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_vocoder_36_0.wav"></audio></td>
+                </tr>
+                <tr>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_36_0.wav"></audio></td>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_vocoder_36_0.wav"></audio></td>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_vocoder_36_0.wav"></audio></td>
+                </tr>
+                <tr>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_36_0.wav"></audio></td>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_vocoder_36_0.wav"></audio></td>
+                    <td><audio controls="" class="audio4">
+                            <source src="wavs/clean_vocoder_36_0.wav"></audio></td>
+                </tr>
+            </tbody>
+        </table>
+    </div><br>
+
+</body>
+
+</html>
